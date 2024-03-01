@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/reset.css?2024_02_28.2" />
-    <link rel="stylesheet" href="styles/main.css?2024_02_28.2" />
-    <title>Cinema</title>
+    <title>Cinema - Plataforma de Streaming de Películas</title>
   </head>
   <body>
     <header></header>
 
     <main>
-      <img src="https://i.postimg.cc/Pfbtjtxc/cinema.webp" alt="">
+      <img src="https://i.postimg.cc/Pfbtjtxc/cinema.webp" alt="" />
       <div class="cinema-app">
         <h1>Cinema - Plataforma de Streaming de Películas</h1>
         <p>
@@ -52,7 +48,10 @@
     <footer></footer>
 
     <script src="./scripts/tempData.js?2024_02_28.2"></script>
-    <script src="./scripts/index.js?2024_02_28.2"></script>
-    <script src="./scripts/header_footer.js?2024_02_28.2"></script>
+    <script>
+      var newDate_getTime = new Date().getTime();
+      import("./scripts/layout.js?" + newDate_getTime);
+      import("./scripts/main.js?" + newDate_getTime);
+    </script>
   </body>
 </html>

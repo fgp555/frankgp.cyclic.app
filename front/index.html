@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/reset.css?2024_02_28.2" />
-    <link rel="stylesheet" href="styles/main.css?2024_02_28.2" />
-    <title>Proyecto de M2</title>
-  </head>
+  <head> </head>
+  <title>Cinema</title>
   <body>
     <header></header>
 
@@ -14,11 +9,13 @@
       <h1>Proyecto de M2</h1>
       <div id="movieList" class="card_container"></div>
     </main>
-
     <footer></footer>
 
     <script src="./scripts/tempData.js?2024_02_28.2"></script>
-    <script src="./scripts/index.js?2024_02_28.2"></script>
-    <script src="./scripts/header_footer.js?2024_02_28.2"></script>
+    <script>
+      var newDate_getTime = new Date().getTime();
+      import("./scripts/layout.js?" + newDate_getTime);
+      import("./scripts/main.js?" + newDate_getTime);
+    </script>
   </body>
 </html>

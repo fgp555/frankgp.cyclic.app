@@ -1,7 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-
+  text-align: center;
 }
 
 header,
@@ -27,7 +27,7 @@ footer {
 }
 main {
   padding: 1em;
-  max-width: 50em;
+  max-width: 80em;
   margin: auto;
 }
 
@@ -41,8 +41,8 @@ main {
 .card_item {
   /* background-color: tomato; */
   border: 1px solid #0008;
-  flex: 0 1 23em;
-  padding: 2em 0.5em;
+  flex: 0 1 16em;
+  padding: 2em 1em;
   text-align: center;
 }
 .card_item p {
