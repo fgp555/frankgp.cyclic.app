@@ -9,6 +9,22 @@ var url = "https://api.1rodemayo.com/movies";
 //   console.log(status);
 // });
 
+// ========== code_review_jquery... ==========
+const getMovies = () => {
+  $.ajax({
+    url: url,
+    method: "GET",
+    success: function (response) {
+      console.log(response);
+      // renderData(response);
+    },
+    error: function (error) {
+      console.log(error);
+    },
+  });
+};
+// ========== code_review_jquery. ==========
+
 const fetchData = async () => {
   const response = await axios.get(url);
   console.log(response.data);
