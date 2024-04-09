@@ -29,9 +29,11 @@ class MovieServiceClass {
 
   createMovie(title, year, director, duration, genre, rate, poster) {
     // console.log(title, year, director, duration, genre, rate, poster);
-    if (!title || !poster || !director) {
-      throw new Error("Title, poster, and director are required.");
+    if (!title) {
+      throw Error("title are required.");
     }
+    if (!poster) throw new Error("poster are required.");
+    if (!director) throw new Error("director are required.");
     const id = this.movies.length + 1;
     const newMovie = new MovieModelClass(id, title, year, director, duration, genre, rate, poster);
     this.movies.push(newMovie);

@@ -14,7 +14,7 @@ const moviesController = {
       movieService.createMovie(title, year, director, duration, genre, rate, poster);
       res.status(200).json([{ message: "se crearon las pelis" }]);
     } catch (error) {
-      res.status(400).json({ message: "error" + error });
+      res.status(400).json({ messagea: "error " + error.message });
     }
   },
 };
