@@ -3,7 +3,13 @@ const axios = require("axios");
 
 // var url = "https://students-api.2.us-1.fl0.io/movies";
 // var url = "https://api.1rodemayo.com/movies";
-var url = "http://localhost:3000/movies";
+var url;
+
+if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+  url = "http://localhost:3000/movies";
+} else {
+  url = "./movies";
+}
 
 // $.get(url, (data, status) => {
 //   renderMovieCards(data);

@@ -9,8 +9,8 @@ const app = express();
 require("dotenv").config();
 var MONGO_URI = process.env.MONGO_URI;
 // console.log(MONGO_URI1)
-var dataBase = "test";
 var dataBase = "moviesDB";
+var dataBase = "test";
 const dbCon = async () => {
   await mongoose.connect(MONGO_URI + dataBase);
   console.log("connect to database successful");
