@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://frankgp.com/component/stat.js" type="module"></script>
@@ -12,6 +11,18 @@
 
     <title>Movie Cards</title>
     <link rel="stylesheet" href="/styles/index.css" />
+    <style>
+      .input-group-text,
+      .form-label {
+        opacity: 0.7;
+      }
+      *::placeholder {
+        opacity: 0.1;
+      }
+      main {
+        padding-top: 10vh;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -60,68 +71,76 @@
       <!-- ========== navbar. ========== -->
 
       <!-- ========== Hero Section... ========== -->
-      <section class="hero_section">
+      <!-- <section class="hero_section">
         <div class="container d-flex align-items-center justify-content-center fs-1 text-white flex-column">
           <h1>Responsive NavBar</h1>
           <h2>Bootstrap 5.3</h2>
         </div>
-      </section>
+      </section> -->
       <!-- ========== Hero Section. ========== -->
     </header>
 
-    <main class="container">
-      <img src="https://i.postimg.cc/90BVtBKV/history.webp" alt="" />
-      <section>
-        <h2>1. Precursores y Experimentación (Siglo XIX):</h2>
-        <p>Aunque se considera que el cine comenzó en la década de 1890, hubo precursores y experimentos previos con la proyección de imágenes en movimiento.</p>
-        <p>Inventores como Thomas Edison y los hermanos Lumière jugaron un papel crucial en los primeros días de la cinematografía.</p>
-      </section>
+    <main class="container mt-5">
+      <div class="container">
+        <h1 class="mt-5">Enviar Datos de Película</h1>
+        <form id="movieForm">
+          <div class="mb-3 input-group">
+            <!-- <span class="input-group-text">Título</span> -->
+            <input type="text" class="form-control" id="title" name="title" placeholder="Título" />
+          </div>
+          <div class="mb-3 input-group">
+            <!-- <span class="input-group-text">Año</span> -->
+            <input type="number" class="form-control" id="year" name="year" placeholder="Año" />
+          </div>
+          <div class="mb-3 input-group">
+            <!-- <span class="input-group-text">Director</span> -->
+            <input type="text" class="form-control" id="director" name="director" placeholder="Director" />
+          </div>
+          <div class="mb-3 input-group">
+            <!-- <span class="input-group-text">Duración</span> -->
+            <input type="text" class="form-control" id="duration" name="duration" placeholder="Duración 2h 15min" />
+          </div>
 
-      <section>
-        <h2>2. Época del Cine Mudo (1890-1920):</h2>
-        <p>Los primeros filmes eran mudos y cortos, a menudo presentando escenas cotidianas o eventos.</p>
-        <p>Directores pioneros como Georges Méliès exploraron técnicas de efectos especiales y narrativa visual.</p>
-      </section>
+          <div class="mb-3 input-group">
+            <!-- <label for="genre" class="form-label me-3">Género:</label> -->
+            <div class="btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-outline-primary"> <input type="checkbox" name="genre" value="Action" checked /> Action </label>
+              <label class="btn btn-outline-primary"> <input type="checkbox" name="genre" value="Thriller" /> Thriller </label>
+              <label class="btn btn-outline-primary"> <input type="checkbox" name="genre" value="Sci-Fi" /> Sci-Fi </label>
+              <label class="btn btn-outline-primary"> <input type="checkbox" name="genre" value="Drama" /> Drama </label>
+              <label class="btn btn-outline-primary"> <input type="checkbox" name="genre" value="Comedy" /> Comedy </label>
+              <label class="btn btn-outline-primary"> <input type="checkbox" name="genre" value="Horror" /> Horror </label>
+            </div>
+          </div>
 
-      <section>
-        <h2>3. Época Dorada de Hollywood (1920-1950):</h2>
-        <p>La introducción del sonido en la década de 1920 marcó una nueva era para el cine.</p>
-        <p>Hollywood se convirtió en el epicentro de la industria cinematográfica, produciendo películas icónicas y estableciendo estrellas de cine.</p>
-        <p>Durante la Gran Depresión, el cine ofreció una vía de escape para el público.</p>
-      </section>
+          <div class="mb-3 input-group">
+            <!-- <span class="input-group-text">Calificación</span> -->
+            <input type="number" class="form-control" id="rate" name="rate" step="0.1" placeholder="Calificación 6.2" />
+          </div>
+          <div class="mb-3 input-group">
+            <!-- <span class="input-group-text">Póster</span> -->
+            <input type="text" class="form-control" id="poster" name="poster" placeholder="URL del Póster" />
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="button" class="btn btn-primary" id="resetButton">Reset Form</button>
+          <button type="button" class="btn btn-secondary" id="getButton">Get Movies</button>
+        </form>
+        <p id="message"></p>
+      </div>
+      <br>
+      <hr>
+      <br>
+      <div class="row" id="movieCardsRow"></div>
 
-      <section>
-        <h2>4. Época de Oro del Cine Internacional (1940-1960):</h2>
-        <p>Después de la Segunda Guerra Mundial, el cine internacional floreció con movimientos como la Nouvelle Vague en Francia y el neorrealismo italiano.</p>
-        <p>Directores como Federico Fellini y Akira Kurosawa dejaron una marca indeleble en la historia del cine.</p>
-      </section>
+      <!-- Bootstrap JS (opcional, si deseas usar componentes de JavaScript de Bootstrap) -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-      <section>
-        <h2>5. Nuevas Tecnologías y Cambios (1960-1980):</h2>
-        <p>La llegada de la televisión y la competencia de otros medios llevaron a innovaciones, como el cine en colores y formatos widescreen.</p>
-        <p>La década de 1970 vio el surgimiento del "Nuevo Hollywood" con directores como Francis Ford Coppola y Martin Scorsese.</p>
-      </section>
+      <!-- Axios -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-      <section>
-        <h2>6. Era de la Tecnología Digital (1980 hasta la actualidad):</h2>
-        <p>El desarrollo de tecnologías digitales transformó la producción y distribución de películas.</p>
-        <p>Se popularizó el uso de efectos visuales avanzados, y la diversidad de géneros y voces en el cine aumentó significativamente.</p>
-      </section>
-
-      <section>
-        <h2>7. Cine Contemporáneo y Globalización (2000 hasta la actualidad):</h2>
-        <p>Hollywood continuó siendo una fuerza dominante, pero cineastas de todo el mundo comenzaron a recibir mayor reconocimiento.</p>
-        <p>La globalización permitió una mayor difusión de películas internacionales y una mayor diversidad en la representación en pantalla.</p>
-      </section>
-
-      <section>
-        <h2>La historia del cine:</h2>
-        <p>
-          La historia del cine es una narrativa compleja y rica, marcada por la innovación tecnológica, cambios culturales y la creatividad continua de cineastas de todo el mundo.
-          Desde sus modestos comienzos hasta la compleja industria contemporánea, el cine ha demostrado ser una forma de arte poderosa y una ventana única a la cultura y la
-          sociedad.
-        </p>
-      </section>
+      <!-- <script src="../scripts/createMovie.js"></script> -->
+      <section id="consoleLog"></section>
+      <script src="https://frankgp.com/lib/console.js" sync></script>
     </main>
 
     <footer class="container-fluid mt-5 py-5">
@@ -165,6 +184,6 @@
     </footer>
     <!-- <script src="./scripts/index.js"></script> -->
     <!-- <script src="./scripts/renderCards.js"></script> -->
-    <!-- <script src="./public/bundle.js"></script> -->
+    <script src="/public/bundle.js"></script>
   </body>
 </html>

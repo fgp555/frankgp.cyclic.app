@@ -143,16 +143,32 @@ class MovieClass {
 module.exports = {
   getMoviesService: async () => {
     const movieFind = await MoviesModel.find();
-    return movieFind;
+    return movieFind
+    // const invertedMovies = await MoviesModel.find({ _id: { $nin: movieFind.map(movie => movie._id) } });
+
+    // return invertedMovies;
   },
 
+  // getMoviesService: async () => {
+  //   // Fetch movies from the database
+  //   const movies = await MoviesModel.find();
+
+  //   // Sort movies in descending order based on _id
+  //   const sortedMovies = movies.sort((a, b) => {
+  //     // Sorting by ObjectId assumes the _id field is an ObjectId
+  //     // Change this if _id is of a different type
+  //     return b._id.getTimestamp() - a._id.getTimestamp();
+  //   });
+
+  //   return sortedMovies;
+  // },
   getByIdService: async (id) => {
     const movieFind = await MoviesModel.findById(id);
     return movieFind;
   },
 
   getByTitleService: async (title) => {
-    const movieFind = await MoviesModel.findOne({title});
+    const movieFind = await MoviesModel.findOne({ title });
     return movieFind;
   },
 

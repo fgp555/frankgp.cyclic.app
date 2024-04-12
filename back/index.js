@@ -4,9 +4,9 @@ const dbCon = require("./src/config/dbCon.js");
 dbCon()
   .then((res) => {
     server.listen(3000, () => {
-      console.info("start server");
+      console.info("🚀 Server started on http://localhost:3000");
     });
   })
   .catch((err) => {
-    console.log("Error al conectarse a la base de datos");
+    console.error("❌ Error al conectarse a la base de datos");
   });

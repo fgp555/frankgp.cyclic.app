@@ -22,4 +22,13 @@ function renderMovieCards(movies) {
   movieCardsRow.innerHTML = cardHtmlArray.join("");
 }
 
+/* 
+
+  const movieCardsRow = document.getElementById("movieCardsRow");
+  const sortedMovies = movies.sort((a, b) => b - a);
+  console.log(sortedMovies);
+  const cardHtmlArray = sortedMovies.map((movie) => createCard(movie));
+  movieCardsRow.innerHTML = cardHtmlArray.join("");
+*/
+
 module.exports = renderMovieCards;

@@ -1,4 +1,5 @@
 const movieService = require("../services/movieService");
+
 // const newClass = new movieService()
 const moviesController = {
   getMovies: async (req, res) => {
@@ -24,7 +25,9 @@ const moviesController = {
       // console.log(req.body)
       const reqBody = req.body;
       movieService.createMoviesService(reqBody);
-      res.status(200).json([{ message: "se crearon las pelis" }]);
+      const movies = await movieService.getMoviesService();
+
+      res.status(200).json([{ message: "se crearon las pelis", movies }]);
     } catch (error) {
       res.status(400).json({ messagea: "error " + error.message });
     }
